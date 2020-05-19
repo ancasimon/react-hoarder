@@ -34,7 +34,7 @@ class MyNavbar extends React.Component {
               <li class="nav-item">
                 {
                   authed
-                    ? <button class="btn btn-light nav-link">Log Out</button>
+                    ? <button class="btn btn-light nav-link" onClick={this.logMeOut}>Log Out</button>
                     : ''
                 }
               </li>
