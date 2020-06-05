@@ -4,9 +4,9 @@ import 'firebase/auth';
 
 import fbConnection from '../helpers/data/connection';
 
-import Auth from '../components/Auth/Auth';
-import Home from '../components/Home/Home';
-import MyNavbar from '../components/MyNavbar/MyNavbar';
+import Auth from '../components/pages/Auth/Auth';
+import Home from '../components/pages/Home/Home';
+import MyNavbar from '../components/shared/MyNavbar/MyNavbar';
 
 import './App.scss';
 
