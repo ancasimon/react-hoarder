@@ -1,4 +1,15 @@
 import React from 'react';
+import { NavLink as RRNavLink } from 'react-router-dom';
+
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+} from 'reactstrap';
 
 import { Link } from 'react-router-dom';
 
@@ -13,43 +24,53 @@ class MyNavbar extends React.Component {
     authed: PropTypes.bool.isRequired,
   }
 
+  state = {
+    isOpen: false,
+  }
+
   logMeOut = (e) => {
     e.preventDefault();
     firebase.auth().signOut();
   }
 
+  toggle = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+
   render() {
-    const { authed } = this.props;
+    const { isOpen } = this.state;
+    const buildNavbar = () => {
+      const { authed } = this.props;
+      if (authed) {
+        return (
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink tag={RRNavLink} to='/home'>Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={RRNavLink} to='/stuff'>My Stuff</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={RRNavLink} to='/new'>New</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="pointerHand" onClick={this.logMeOut}>Log Out</NavLink>
+            </NavItem>
+          </Nav>
+        );
+      }
+      return <Nav className="ml-auto" navbar></Nav>;
+    };
 
     return (
       <div className="MyNavbar">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="#">React Hoarder</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                {
-                  authed
-                    ? <ul className="navbar-nav ml-auto">
-                        <li className="nav-item active">
-                          <Link className="btn nav-link" to='/home'>Home<span className="sr-only">(current)</span></Link>
-                        </li>
-                        <li className="nav-item">
-                          <Link className="nav-link" to='/stuff'>My Stuff</Link>
-                        </li>
-                        <li className="nav-item">
-                          <Link className="nav-link" to='/new'>New</Link>
-                        </li>
-                        <li className="nav-item">
-                          <button className="btn btn-light nav-link" onClick={this.logMeOut}>Log Out</button>
-                        </li>
-                      </ul>
-                    : ''
-                }
-          </div>
-        </nav>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={isOpen} navbar>
+            { buildNavbar() }
+          </Collapse>
+        </Navbar>
       </div>
     );
   }
