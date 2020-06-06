@@ -34,13 +34,13 @@ class MyNavbar extends React.Component {
                   authed
                     ? <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
-                          <button className="btn nav-link">Home <span className="sr-only">(current)</span></button>
+                          <Link className="btn nav-link" to='/home'>Home<span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
                           <Link className="nav-link" to='/stuff'>My Stuff</Link>
                         </li>
                         <li className="nav-item">
-                          <Link className="nav-link" to='/stuff/new'>New</Link>
+                          <Link className="nav-link" to='/new'>New</Link>
                         </li>
                         <li className="nav-item">
                           <button className="btn btn-light nav-link" onClick={this.logMeOut}>Log Out</button>

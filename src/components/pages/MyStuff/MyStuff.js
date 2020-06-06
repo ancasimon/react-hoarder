@@ -6,7 +6,7 @@ class MyStuff extends React.Component {
   editItemEvent = (e) => {
     e.preventDefault();
     const itemId = '12345';
-    this.props.history.push(`/stuff/${itemId}/edit`);
+    this.props.history.push(`/edit/${itemId}`);
   }
 
   viewItemEvent = (e) => {
