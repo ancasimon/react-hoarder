@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import itemShape from '../../../helpers/propz/itemShape';
@@ -8,10 +9,11 @@ import './ItemCard.scss';
 class ItemCard extends React.Component {
   static propTypes = {
     item: itemShape.itemShape,
+    removeItem: PropTypes.func.isRequired,
   }
 
   render() {
-    const { item } = this.props;
+    const { item, removeItem } = this.props;
     const singleLink = `/stuff/${item.id}`;
     const editLink = `/edit/${item.id}`;
 
@@ -26,7 +28,7 @@ class ItemCard extends React.Component {
             <div className="row justify-content-center">
               <Link className="btn btn-secondary itemButton" to={singleLink}>View</Link>
               <Link className="btn btn-dark itemButton" to={editLink}>Edit</Link>
-              <button className="btn btn-danger itemButton">Delete</button>
+              <button className="btn btn-danger itemButton" onClick={() => removeItem(item.id)}>Delete</button>
             </div>
           </div>
         </div>
