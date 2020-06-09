@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import stuffData from '../../../helpers/data/stuffData';
 
@@ -18,12 +19,15 @@ class Single extends React.Component {
 
   render() {
     const { item } = this.state;
+    const stuff = '/stuff';
 
     return (
       <div className="Single container">
+        <Link className="btn btn-danger" to={stuff}>Back</Link>
         <h1>{item.itemName}</h1>
         <p>{item.itemDescription}</p>
         <img src={item.itemImage} alt="stuff I hoard" />
+
       </div>
     );
   }
