@@ -18,10 +18,10 @@ class ItemCard extends React.Component {
     return (
       <div className="ItemCard col-6">
         <div className="card">
-          <div class="card-header">
+          <div className="card-header">
             {item.itemName}
           </div>
-          <div class="card-body">
+          <div className="card-body">
             <img src={item.itemImage} alt="stuff I hoard" className="stuffImage" />
             <div className="row justify-content-center">
               <Link className="btn btn-secondary itemButton" to={singleLink}>View</Link>

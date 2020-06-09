@@ -26,7 +26,7 @@ class MyStuff extends React.Component {
   render() {
     const { items } = this.state;
     const buildItemCards = items.map((item) => (
-      <ItemCard item={item} />
+      <ItemCard key={item.id} item={item} />
     ));
     return (
       <div className="MyStuff">

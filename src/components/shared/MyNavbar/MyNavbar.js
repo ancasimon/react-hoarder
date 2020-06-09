@@ -11,8 +11,6 @@ import {
   NavLink,
 } from 'reactstrap';
 
-import { Link } from 'react-router-dom';
-
 import PropTypes from 'prop-types';
 import firebase from 'firebase/app';
 import 'firebase/auth';
