@@ -6,3 +6,22 @@
 body {
   background-color: $blue;
 }
+
+.blueButton {
+  background-color: $blue;
+  color: white;
+  font-weight: bolder;
+}
+
+.redButton {
+  background-color: $red;
+  color: white;
+  font-weight: bolder;
+}
+
+.yellowButton {
+  background-color: $yellow;
+  color: white;
+  font-weight: bolder;
+}
+
