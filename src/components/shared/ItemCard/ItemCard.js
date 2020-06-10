@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 
 import itemShape from '../../../helpers/propz/itemShape';
 
+// import '../../../styles/_colors.scss';
+import '../../../styles/index.scss';
 import './ItemCard.scss';
 
 class ItemCard extends React.Component {
@@ -26,8 +28,8 @@ class ItemCard extends React.Component {
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#2ab7ca',
+      cancelButtonColor: '#fe4a49',
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.value) {
@@ -55,9 +57,9 @@ class ItemCard extends React.Component {
           <div className="card-body">
             <img src={item.itemImage} alt="stuff I hoard" className="stuffImage" />
             <div className="row justify-content-center">
-              <Link className="btn btn-secondary itemButton" to={singleLink}>View</Link>
-              <Link className="btn btn-dark itemButton" to={editLink}>Edit</Link>
-              <button className="btn btn-danger itemButton" onClick={ () => {
+              <Link className="btn itemButton blueButton" to={singleLink}>View</Link>
+              <Link className="btn itemButton yellowButton" to={editLink}>Edit</Link>
+              <button className="btn itemButton redButton" onClick={ () => {
                 this.deleteConfirmation();
               }
               }>Delete</button>

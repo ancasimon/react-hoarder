@@ -32,8 +32,8 @@ class Single extends React.Component {
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#2ab7ca',
+      cancelButtonColor: '#fe4a49',
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.value) {
@@ -54,8 +54,8 @@ class Single extends React.Component {
     return (
       <div className="Single container">
         <div className="row justify-content-center">
-          <Link className="btn btn-warning col-md-3 m-2" to={stuff}>Back</Link>
-          <button className="btn btn-danger col-3 m-2" onClick={this.deleteConfirmation}>Delete</button>
+          <Link className="btn yellowButton col-md-3 m-2" to={stuff}>Back</Link>
+          <button className="btn redButton col-3 m-2" onClick={this.deleteConfirmation}>Delete</button>
           </div>
         <h1>{item.itemName}</h1>
         <p>{item.itemDescription}</p>
