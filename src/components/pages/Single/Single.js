@@ -52,8 +52,7 @@ class Single extends React.Component {
     const { item } = this.state;
     const { itemId } = this.props.match.params;
     const { currentpath } = this.state;
-    console.log('current path on Single page', currentpath);
-    const editLink = `/edit/${itemId}`;
+    // const editLink = `/edit/${itemId}`; NO LONGER NEED THIS BECAUSE I NEED TO SPECIFY I HAVE TO ADD THE EXACT PATH NAME WHEN SPECIFYING MULTIPLE PROPS in new route below!
     const stuff = '/stuff';
     const newroute = { pathname: `/edit/${itemId}`, previouspath: { currentpath } };
 

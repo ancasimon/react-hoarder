@@ -51,7 +51,7 @@ class ItemCard extends React.Component {
     const { item } = this.props;
     const singleLink = `/stuff/${item.id}`;
     const { currentpath } = this.state;
-    const editLink = `/edit/${item.id}`;
+    // const editLink = `/edit/${item.id}`; NO LONGER NEED THIS BECAUSE I NEED TO SPECIFY I HAVE TO ADD THE EXACT PATH NAME WHEN SPECIFYING MULTIPLE PROPS in new route below!
     const newroute = { pathname: `/edit/${item.id}`, previouspath: { currentpath } };
 
     return (

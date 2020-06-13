@@ -18,9 +18,8 @@ class EditItem extends React.Component {
   }
 
   componentDidMount() {
-    console.log('newroute from single', this.props.location.previouspath);
+    // console.log('newroute from single', this.props.location.previouspath);
     const editId = this.props.match.params.itemId;
-    console.log('props', this.props);
     stuffData.getSingleItem(editId)
       .then((response) => {
         const item = response.data;
@@ -29,7 +28,6 @@ class EditItem extends React.Component {
           itemImage: item.itemImage,
           itemDescription: item.itemDescription,
         });
-        console.log('originpath when loading page', this.originpath);
       })
       .catch((err) => console.error('unable to get id for editing this item', err));
   }
@@ -66,7 +64,7 @@ class EditItem extends React.Component {
     stuffData.putItem(itemId, updatedItem)
       .then(() => {
         const { previouspath } = this.props.location;
-        console.log('prev path in update', previouspath);
+        // console.log('prev path in update', previouspath);
         previouspath === '/stuff' ? this.props.history.push('/stuff') : this.props.history.push(previouspath.currentpath);
       })
       .catch((err) => console.error('unable to save new item:', err));
