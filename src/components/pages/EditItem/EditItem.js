@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import authData from '../../../helpers/data/authData';
 import stuffData from '../../../helpers/data/stuffData';
@@ -12,8 +13,14 @@ class EditItem extends React.Component {
     itemDescription: '',
   }
 
+  static propTypes = {
+    previouspath: PropTypes.string,
+  }
+
   componentDidMount() {
+    console.log('newroute from single', this.props.location.previouspath);
     const editId = this.props.match.params.itemId;
+    console.log('props', this.props);
     stuffData.getSingleItem(editId)
       .then((response) => {
         const item = response.data;
@@ -22,6 +29,7 @@ class EditItem extends React.Component {
           itemImage: item.itemImage,
           itemDescription: item.itemDescription,
         });
+        console.log('originpath when loading page', this.originpath);
       })
       .catch((err) => console.error('unable to get id for editing this item', err));
   }
@@ -56,7 +64,11 @@ class EditItem extends React.Component {
       uid: authData.getUid(),
     };
     stuffData.putItem(itemId, updatedItem)
-      .then(() => this.props.history.push('/stuff'))
+      .then(() => {
+        const { previouspath } = this.props.location;
+        console.log('prev path in update', previouspath);
+        previouspath === '/stuff' ? this.props.history.push('/stuff') : this.props.history.push(previouspath.currentpath);
+      })
       .catch((err) => console.error('unable to save new item:', err));
   }
 

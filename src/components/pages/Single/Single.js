@@ -9,12 +9,13 @@ import './Single.scss';
 class Single extends React.Component {
   state = {
     item: {},
+    currentpath: '',
   }
 
   componentDidMount() {
     const { itemId } = this.props.match.params;
     stuffData.getSingleItem(itemId)
-      .then((response) => this.setState({ item: response.data }))
+      .then((response) => this.setState({ item: response.data, currentpath: this.props.location.pathname }))
       .catch((err) => console.error('unable to get single item: ', err));
   }
 
@@ -50,15 +51,18 @@ class Single extends React.Component {
   render() {
     const { item } = this.state;
     const { itemId } = this.props.match.params;
+    const { currentpath } = this.state;
+    console.log('current path on Single page', currentpath);
     const editLink = `/edit/${itemId}`;
     const stuff = '/stuff';
+    const newroute = { pathname: `/edit/${itemId}`, previouspath: { currentpath } };
 
     return (
       <div className="Single container">
         <div className="row justify-content-center">
           <Link className="btn btn-dark col-md-3 m-2" to={stuff}>Back</Link>
           <div className="row col-12 justify-content-center">
-            <Link className="btn yellowButton col-3 m-2" to={editLink}>Edit</Link>
+            <Link className="btn yellowButton col-3 m-2" to={newroute}>Edit</Link>
             <button className="btn redButton col-3 m-2" onClick={this.deleteConfirmation}>Delete</button>
           </div>
           </div>
