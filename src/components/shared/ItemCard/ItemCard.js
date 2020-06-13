@@ -11,6 +11,10 @@ import '../../../styles/index.scss';
 import './ItemCard.scss';
 
 class ItemCard extends React.Component {
+  state = {
+    currentpath: '/stuff',
+  }
+
   static propTypes = {
     item: itemShape.itemShape,
     removeItem: PropTypes.func.isRequired,
@@ -46,7 +50,9 @@ class ItemCard extends React.Component {
   render() {
     const { item } = this.props;
     const singleLink = `/stuff/${item.id}`;
-    const editLink = `/edit/${item.id}`;
+    const { currentpath } = this.state;
+    // const editLink = `/edit/${item.id}`; NO LONGER NEED THIS BECAUSE I NEED TO SPECIFY I HAVE TO ADD THE EXACT PATH NAME WHEN SPECIFYING MULTIPLE PROPS in new route below!
+    const newroute = { pathname: `/edit/${item.id}`, previouspath: { currentpath } };
 
     return (
       <div className="ItemCard col-6">
@@ -58,7 +64,7 @@ class ItemCard extends React.Component {
             <img src={item.itemImage} alt="stuff I hoard" className="stuffImage" />
             <div className="row justify-content-center">
               <Link className="btn itemButton blueButton" to={singleLink}>View</Link>
-              <Link className="btn itemButton yellowButton" to={editLink}>Edit</Link>
+              <Link className="btn itemButton yellowButton" to={newroute}>Edit</Link>
               <button className="btn itemButton redButton" onClick={ () => {
                 this.deleteConfirmation();
               }
