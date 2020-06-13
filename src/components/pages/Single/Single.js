@@ -49,13 +49,18 @@ class Single extends React.Component {
 
   render() {
     const { item } = this.state;
+    const { itemId } = this.props.match.params;
+    const editLink = `/edit/${itemId}`;
     const stuff = '/stuff';
 
     return (
       <div className="Single container">
         <div className="row justify-content-center">
-          <Link className="btn yellowButton col-md-3 m-2" to={stuff}>Back</Link>
-          <button className="btn redButton col-3 m-2" onClick={this.deleteConfirmation}>Delete</button>
+          <Link className="btn btn-dark col-md-3 m-2" to={stuff}>Back</Link>
+          <div className="row col-12 justify-content-center">
+            <Link className="btn yellowButton col-3 m-2" to={editLink}>Edit</Link>
+            <button className="btn redButton col-3 m-2" onClick={this.deleteConfirmation}>Delete</button>
+          </div>
           </div>
         <h1>{item.itemName}</h1>
         <p>{item.itemDescription}</p>
