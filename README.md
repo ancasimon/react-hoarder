@@ -3,7 +3,7 @@
 ## Description
 This project gave us the opportunity to practice routing with React Router while continuing to perform CRUD actions on data stored in a Firebase database. 
 
-Project instructions can be foudn here: https://github.com/nss-nightclass-projects/react-hoarder.
+Project instructions can be found here: https://github.com/nss-nightclass-projects/react-hoarder.
 
 ## Screenshots
 ##### My Stuff Page
@@ -15,12 +15,12 @@ Project instructions can be foudn here: https://github.com/nss-nightclass-projec
 ## Features
 1. Users can log in with Google authentication. 
 1. When logged in, users can see only their items. 
-1. The app uses different urls to let users know what page they are on. 
+1. The app uses different URLs to let users know what page they are on. 
 1. Users can perform CRUD actions on items. 
 1. Users get an alert before deleting an item to confirm they want to delete it. 
 
 ## Technologies
-Axios, Bootstrap, CSS, ES6 Modules, Firebase (for authentication and data management), Github (for version control and project management), Google login authentication, HTML5, JavaScript, JQuery, JSX, React, SASS, SweetAlert2, Webpack
+Axios, Bootstrap, CSS, ES6 Modules, Firebase (for authentication and data management), Github (for version control and project management), Google login authentication, HTML5, JavaScript, jQuery, JSX, React, React Router, reactstrap, REST API, Sass, sweetalert2, Webpack
 
 ## How to Run
 1. Clone down this repo.
